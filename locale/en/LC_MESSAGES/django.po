@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-13 20:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: fpages/admin.py:11
+msgid "Advanced options"
+msgstr ""
+
+#: templates/flatpages/articles_edit.html:5
+msgid "Добавление статьи:"
+msgstr "Create article"
+
+#: templates/flatpages/category.html:9
+msgid "Все категории"
+msgstr "All categories"
+
+#: templates/flatpages/category.html:15
+msgid "Название"
+msgstr "Name"
+
+#: templates/flatpages/category.html:16
+msgid "Подписка"
+msgstr "Subscribe"
+
+#: templates/flatpages/category.html:24
+msgid "Отписаться"
+msgstr "Unsubscribe"
+
+#: templates/flatpages/category.html:26
+msgid "Подписаться"
+msgstr "Subscribe"
+
+#: templates/flatpages/default.html:29
+msgid "Homepage"
+msgstr ""
+
+#: templates/flatpages/default.html:32
+msgid "All Posts"
+msgstr ""
+
+#: templates/flatpages/default.html:35
+msgid "Create News"
+msgstr ""
+
+#: templates/flatpages/default.html:38
+msgid "Create Articles"
+msgstr ""
+
+#: templates/flatpages/default.html:41
+msgid "Sign In"
+msgstr ""
+
+#: templates/flatpages/default.html:44
+msgid "Sign Out"
+msgstr ""
+
+#: templates/flatpages/default.html:47
+msgid "All Category"
+msgstr ""
+
+#: templates/flatpages/default.html:50
+msgid "Profile"
+msgstr ""
+
+#: templates/flatpages/news.html:14
+msgid "Все новости"
+msgstr "All news"
+
+#: templates/flatpages/news.html:19
+msgid "Поиск по новостям"
+msgstr "News Search"
+
+#: templates/flatpages/news.html:27
+msgid "Всего новостей: "
+msgstr "Total news: "
+
+#: templates/flatpages/news.html:34
+msgid "Заголовок"
+msgstr "Headline"
+
+#: templates/flatpages/news.html:35
+msgid "Дата публикации"
+msgstr "Date of publication"
+
+#: templates/flatpages/news.html:36
+msgid "Превью"
+msgstr "Preview"
+
+#: templates/flatpages/news_edit.html:5
+msgid "Добавление новости"
+msgstr "Create news"
+
+#: templates/flatpages/news_split.html:11
+msgid "Запись была опубликована: "
+msgstr "This post was published: "
