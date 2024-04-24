@@ -1,0 +1,91 @@
+{% extends 'flatpages/default.html' %} 
+
+{% load i18n %}
+{% load tz %}
+{% load custom_filtres %}
+{% load custom_tags %}
+{% load cache %}
+
+
+{% block title %}
+Posts
+{% endblock title %}
+ 
+{% block content %}
+    <h1>{% trans 'Все новости' %}</h1>
+    <h3>{{ time_now|date:'M d Y' }}</h3>
+    <hr>
+
+    {% cache 30 search %}
+        <h2>{% trans 'Поиск по новостям' %}</h2>
+        <form action="" method="get">
+            {{ filterset.form.as_p }}
+            <input type="date">
+            <input type="submit" value="Найти" />
+        </form>
+    {% endcache %}
+
+    <p>
+        Настройка часового пояса:
+        <div>
+            {% get_current_timezone as TIME_ZONE %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="timezone">Time zone:</label>
+                <select name="timezone">
+                    {% for tz in timezones %}
+                    <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Set">
+            </form>
+    
+            {{ TIME_ZONE }}
+            {{ current_time|timezone:TIME_ZONE }}
+        </div>
+    </p>
+
+    <h3>{% trans 'Всего новостей: ' %}{{ news|length }}</h3>
+
+   
+    <hr>
+    {% if news %}
+        <table>
+            <tr>
+                <td>{% trans 'Заголовок' %}</td>
+                <td>{% trans 'Дата публикации' %}</td>
+                <td>{% trans 'Превью' %}</td>
+            </tr>
+          
+            {% for news in news %}
+            <tr>
+                <td>{{ news.headline|censor }}</td>
+                <td>{{ news.time_create }}</td>
+                <td>{{ news.text|truncatewords:20|censor }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    {% else %}
+        <h2>Новостей нет!</h2>
+    {% endif %}
+
+    {% if page_obj.has_previous %}
+        <a href="?{% url_replace page=1 %}">1</a>
+        {% if page_obj.previous_page_number != 1 %}
+            ...
+            <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+        {% endif %}
+    {% endif %}
+
+    {{ page_obj.number }}
+
+    {% if page_obj.has_next %}
+        <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+        {% if paginator.num_pages != page_obj.next_page_number %}
+            ...
+            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock content %}
